@@ -1,6 +1,6 @@
 body
 {
-    color: #999966;
+    color: darkseagreen;
     font-family: 'Open Sans', sans-serif;
     font-size: 17px;
 }
@@ -36,14 +36,24 @@ h2
 }
 
 a{
-    color:#61D6C6;
+    color:darkseagreen;
+    background-color: blanchedalmond;
+
+
 }
 a:link {text-decoration:none;}
 a:visited {text-decoration:none;}
 a:hover {text-decoration:underline;}
-a:active {text-decoration:underline;}
+a:active {text-decoration: navajowhite;}
 
 .bottom
 {
     margin-bottom: 60px;
+}
+
+table
+{
+    background-color: blanchedalmond;
+    font-size: 26px;
+    margin-left: 5px;
 }

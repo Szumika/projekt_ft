@@ -34,7 +34,7 @@
             <table class="bg-info pull-right">
                 <tr>
                     <td><a href="/">Start</a> </td>
-                    <td><a href="/ordered">Zamowienia</a></td>
+                    <td><a href="/pojazdadmin">pojazdy</a></td>
                     <td><a href="/groups">Grupy</a></td>
                     <td><a href="/newsadmin">News</a></td>
                     <td><a href="/itemsadmin">Produkty</a></td>

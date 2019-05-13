@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Pojazd {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private double iloscKM;
     private int iloscMiejsc;
     private String marka;
@@ -17,7 +17,7 @@ public class Pojazd {
     private String numerPojazdu;
     private double srednieZuzyciePaliwa;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -81,7 +81,7 @@ public class Pojazd {
         this.srednieZuzyciePaliwa = srednieZuzyciePaliwa;
     }
 
-    public Pojazd(int id, double iloscKM, int iloscMiejsc, String marka, String miejsceParkingowe, String model, String numerPojazdu, double srednieZuzyciePaliwa) {
+    public Pojazd(long id, double iloscKM, int iloscMiejsc, String marka, String miejsceParkingowe, String model, String numerPojazdu, double srednieZuzyciePaliwa) {
         this.id = id;
         this.iloscKM = iloscKM;
         this.iloscMiejsc = iloscMiejsc;
