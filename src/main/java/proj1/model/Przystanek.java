@@ -11,6 +11,15 @@ public class Przystanek {
 private int id;
 private String miejscowosc;
 private String nazwaPrzystanku;
+private String trasa;
+
+    public String getTrasa() {
+        return trasa;
+    }
+
+    public void setTrasa(String trasa) {
+        this.trasa = trasa;
+    }
 
     public int getId() {
         return id;
@@ -39,9 +48,10 @@ private String nazwaPrzystanku;
     public Przystanek() {
     }
 
-    public Przystanek(String miejscowosc, String nazwaPrzystanku) {
+    public Przystanek(String miejscowosc, String nazwaPrzystanku, String trasa) {
         this.miejscowosc = miejscowosc;
         this.nazwaPrzystanku = nazwaPrzystanku;
+        this.trasa = trasa;
     }
 
     @Override
@@ -50,6 +60,8 @@ private String nazwaPrzystanku;
                 "id=" + id +
                 ", miejscowosc='" + miejscowosc + '\'' +
                 ", nazwaPrzystanku='" + nazwaPrzystanku + '\'' +
+                ", trasa='" + trasa + '\'' +
                 '}';
     }
+
 }

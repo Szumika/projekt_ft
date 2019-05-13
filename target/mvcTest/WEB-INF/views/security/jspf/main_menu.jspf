@@ -35,9 +35,9 @@
                 <tr >
                     <td ><a href="/">Start</a> </td>
                     <td ><a href="/pojazd">Pojazdy</a></td>
-                    <td ><a href="/items">Produkty</a></td>
-                    <td ><a href="/order">Zloz zamowienie</a></td>
-                    <td ><a href="/group">Brygady</a></td>
+                    <td ><a href="/cennik">Cennik</a></td>
+                    <td ><a href="/przystanek">Przystanek</a></td>
+                    <td ><a href="/nagrody">Nagrody</a></td>
                     <td ><a href="/communication">kontakt</a></td>
                 </tr>
             </table>

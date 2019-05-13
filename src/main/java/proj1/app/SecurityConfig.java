@@ -20,7 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/register", "/login").permitAll()
-                .antMatchers("/","/order","/news","/items","/group","/communication").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+                .antMatchers("/pracownik", "/grafik").access("hasAnyRole('ROLE_ADMIN','ROLE_PRACOWNIK')")
+                .antMatchers("/","/pojazdy","/news","/items","/group","/communication").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER','ROLE_PRACOWNIK')")
                 .antMatchers("/admin","/ordered","/grpedit","/groups").access("hasRole('ROLE_ADMIN')")
 //                .anyRequest().access("hasRole('ROLE_ADMIN')")
                 .and().formLogin()

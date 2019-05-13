@@ -30,6 +30,9 @@ public class UserService implements IUserService {
         if(accountDto.getUsername().equals("Maciej123")){
             user.setRoles(Arrays.asList("ROLE_ADMIN"));
         }
+        else if(accountDto.getEmail().contains("@praca.com.pl")){
+            user.setRoles(Arrays.asList("ROLE_PRACOWNIK"));
+        }
         else{
             user.setRoles(Arrays.asList("ROLE_USER"));
         }
