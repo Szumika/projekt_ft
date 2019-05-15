@@ -1,9 +1,8 @@
 package proj1.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import proj1.model.security.User;
+
+import javax.persistence.*;
 
 @Entity
 public class Pracownicy {
@@ -19,6 +18,16 @@ private Pojazd pojazd;
 private Raporty raport;
 @OneToOne
 private Nagrody nagrody;
+@OneToOne
+private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;

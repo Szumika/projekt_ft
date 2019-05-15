@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import proj1.model.Data;
 import proj1.model.Pojazd;
+import proj1.repository.DataRepository;
 import proj1.repository.PojazdRepository;
+import proj1.repository.PrzystanekRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;

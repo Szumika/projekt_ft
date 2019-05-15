@@ -30,16 +30,11 @@
         <p>
             Jestes zalogowany jako: ${principal.username} <a
                 href="<c:url value="logout" />"> Logout</a>
+             <a href="/grafik">Grafik</a>
             Panel Administracyjny: <a href="/admin">wejdz</a>
         </p>
         <div class="linemenu">
 
-            <%--<style>table{--%>
-                <%--font-size: 24px;--%>
-                <%--font-variant-position: normal;--%>
-                <%--color:sandybrown ;--%>
-                <%--background-color: bisque;--%>
-            <%--}</style>--%>
             <table >
                 <%--class="bg-info pull-right"--%>
                 <tr >
@@ -48,7 +43,7 @@
                     <td ><a href="/cennik">Cennik</a></td>
                     <td ><a href="/przystanek">Przystanek</a></td>
                     <td ><a href="/nagrody">Nagrody</a></td>
-                    <td ><a href="/communication">kontakt</a></td>
+                    <td ><a href="/rezerwacja">rezerwacja</a></td>
                 </tr>
             </table>
         </div>

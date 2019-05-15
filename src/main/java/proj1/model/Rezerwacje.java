@@ -14,13 +14,28 @@ public class Rezerwacje {
 @GeneratedValue
 private int id;
 private double cena;
-private Date data;
 @OneToOne
 private Przystanek przystanekStart;
 @OneToOne
-private Przystanek przystanekKoncowy;
-@OneToOne
+private Data date;
+
+    @OneToOne
 private User user;
+
+    public Data getDate() {
+        return date;
+    }
+
+    public Rezerwacje(double cena, Przystanek przystanekStart, Data date, User user) {
+        this.cena = cena;
+        this.przystanekStart = przystanekStart;
+        this.date = date;
+        this.user = user;
+    }
+
+    public void setDate(Data date) {
+        this.date = date;
+    }
 
     public int getId() {
         return id;
@@ -38,14 +53,6 @@ private User user;
         this.cena = cena;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-
     public Przystanek getPrzystanekStart() {
         return przystanekStart;
     }
@@ -54,13 +61,13 @@ private User user;
         this.przystanekStart = przystanekStart;
     }
 
-    public Przystanek getPrzystanekKoncowy() {
-        return przystanekKoncowy;
-    }
-
-    public void setPrzystanekKoncowy(Przystanek przystanekKoncowy) {
-        this.przystanekKoncowy = przystanekKoncowy;
-    }
+//    public Przystanek getPrzystanekKoncowy() {
+//        return przystanekKoncowy;
+//    }
+//
+//    public void setPrzystanekKoncowy(Przystanek przystanekKoncowy) {
+//        this.przystanekKoncowy = przystanekKoncowy;
+//    }
 
     public User getUser() {
         return user;
@@ -71,25 +78,18 @@ private User user;
     }
 
 
-    public Rezerwacje(double cena, Date data, Przystanek przystanekStart, Przystanek przystanekKoncowy, User user) {
-        this.cena = cena;
-        this.data = data;
-        this.przystanekStart = przystanekStart;
-        this.przystanekKoncowy = przystanekKoncowy;
-        this.user = user;
-    }
 
     public Rezerwacje() {
     }
+
 
     @Override
     public String toString() {
         return "Rezerwacje{" +
                 "id=" + id +
                 ", cena=" + cena +
-                ", data=" + data +
                 ", przystanekStart=" + przystanekStart +
-                ", przystanekKoncowy=" + przystanekKoncowy +
+                ", date=" + date +
                 ", user=" + user +
                 '}';
     }

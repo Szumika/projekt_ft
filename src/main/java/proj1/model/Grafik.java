@@ -1,5 +1,7 @@
 package proj1.model;
 
+import proj1.model.security.User;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,11 +13,19 @@ public class Grafik {
     @Id
     @GeneratedValue
     private int id;
-    private Date dataRozpoczecia;
-    private Date dataZakonczenia;
+    private String dataRozpoczecia;
+    private String dataZakonczenia;
     private String harmonogram;
     @OneToOne
-    private Pracownicy pracownik;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;
@@ -25,19 +35,19 @@ public class Grafik {
         this.id = id;
     }
 
-    public Date getDataRozpoczecia() {
+    public String getDataRozpoczecia() {
         return dataRozpoczecia;
     }
 
-    public void setDataRozpoczecia(Date dataRozpoczecia) {
+    public void setDataRozpoczecia(String dataRozpoczecia) {
         this.dataRozpoczecia = dataRozpoczecia;
     }
 
-    public Date getDataZakonczenia() {
+    public String getDataZakonczenia() {
         return dataZakonczenia;
     }
 
-    public void setDataZakonczenia(Date dataZakonczenia) {
+    public void setDataZakonczenia(String dataZakonczenia) {
         this.dataZakonczenia = dataZakonczenia;
     }
 
@@ -50,22 +60,16 @@ public class Grafik {
     }
 
 
-    public Pracownicy getPracownik() {
-        return pracownik;
-    }
 
-    public void setPracownik(Pracownicy pracownik) {
-        this.pracownik = pracownik;
-    }
 
     public Grafik() {
     }
 
-    public Grafik(Date dataRozpoczecia, Date dataZakonczenia, String harmonogram, Pracownicy pracownik) {
+    public Grafik(String dataRozpoczecia, String dataZakonczenia, String harmonogram, User user) {
         this.dataRozpoczecia = dataRozpoczecia;
         this.dataZakonczenia = dataZakonczenia;
         this.harmonogram = harmonogram;
-        this.pracownik = pracownik;
+        this.user = user;
     }
 
     @Override
@@ -75,7 +79,7 @@ public class Grafik {
                 ", dataRozpoczecia=" + dataRozpoczecia +
                 ", dataZakonczenia=" + dataZakonczenia +
                 ", harmonogram='" + harmonogram + '\'' +
-                ", pracownik=" + pracownik +
+                ", pracownik=" + user +
                 '}';
     }
 }

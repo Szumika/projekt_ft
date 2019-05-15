@@ -5,6 +5,9 @@
          pageEncoding="UTF-8" isELIgnored="false"%><html>
 <c:url value="/resources/js/timer.js" var="timer"/>
 <c:url value="/resources/jpg/tlo1.jpg" var="index1"/>
+<c:url value="/resources/jpg/nagroda1.jpeg" var="nagroda1"/>
+<c:url value="/resources/jpg/nagroda2.jpeg" var="nagroda2"/>
+
 
 <html>
 <head>
@@ -31,20 +34,24 @@
 <%@ include file="security/jspf/main_menu.jspf"%>
 <c:url value="/resources/css/style.css" var="style"/>
 <link href="${style}" rel="stylesheet"/>
-<title>Rezerwacja</title>
-
+    <title>Grafik</title>
+</head>
 <body>
 
-<form:form method="post" modelAttribute="rezerwacja">
+<h2>Grafik pracowników Fitmy D-Trans</h2>
+<p>Wpisując date pamiętaj o formacie  rrrr-mm-dd</p>
+<form:form method="post" modelAttribute="grafik">
     <div>
-        <form:label path="date">data:</form:label>
-        <form:select path="date.id" items="${data}"
-                     itemLabel="data" itemValue="id"/>
+        <form:label path="dataRozpoczecia">data rozpoczecia:</form:label>
+        <form:input path="dataRozpoczecia" items="dataRozpoczecia"/>
     </div>
     <div>
-        <form:label path="przystanekStart">data:</form:label>
-        <form:select path="przystanekStart.id" items="${przystanek}"
-                     itemLabel="nazwaPrzystanku" itemValue="id"/>
+        <form:label path="dataZakonczenia">data zakonczenia:</form:label>
+        <form:input path="dataZakonczenia" items="dataZakonczenia"/>
+    </div>
+    <div>
+        <form:label path="harmonogram">Jaka zmiana(rano/popołudniu):</form:label>
+        <form:input path="harmonogram" items="harmonogram"/>
     </div>
     <input type="submit">
 </form:form>
