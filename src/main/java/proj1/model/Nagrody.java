@@ -8,32 +8,32 @@ import javax.persistence.Id;
 public class Nagrody {
 @Id
 @GeneratedValue
-private int id;
-private int iloscPkt;
-private  int iloscSztuk;
+private long id;
+private String iloscPkt;
+private  String iloscSztuk;
 private String nazwa;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getIloscPkt() {
+    public String getIloscPkt() {
         return iloscPkt;
     }
 
-    public void setIloscPkt(int iloscPkt) {
+    public void setIloscPkt(String iloscPkt) {
         this.iloscPkt = iloscPkt;
     }
 
-    public int getIloscSztuk() {
+    public String getIloscSztuk() {
         return iloscSztuk;
     }
 
-    public void setIloscSztuk(int iloscSztuk) {
+    public void setIloscSztuk(String iloscSztuk) {
         this.iloscSztuk = iloscSztuk;
     }
 
@@ -45,7 +45,7 @@ private String nazwa;
         this.nazwa = nazwa;
     }
 
-    public Nagrody(int iloscPkt, int iloscSztuk, String nazwa) {
+    public Nagrody(String iloscPkt, String iloscSztuk, String nazwa) {
         this.iloscPkt = iloscPkt;
         this.iloscSztuk = iloscSztuk;
         this.nazwa = nazwa;

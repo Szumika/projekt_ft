@@ -8,11 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import proj1.model.Data;
-import proj1.model.Pojazd;
-import proj1.repository.DataRepository;
-import proj1.repository.PojazdRepository;
-import proj1.repository.PrzystanekRepository;
+import proj1.model.*;
+import proj1.repository.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,6 +19,12 @@ import java.util.Properties;
 public class AdminController {
     @Autowired
     private PojazdRepository pojrep;
+    @Autowired
+    private PrzystanekRepository przysrep;
+    @Autowired
+    private CennikRepository cenrep;
+    @Autowired
+    private NagrodyRepository nagrep;
 
 
     @GetMapping("/admin")
@@ -32,6 +35,21 @@ public class AdminController {
     @GetMapping("/pojazdadmin")
     public String poj() {
         return "admin/pojazdadmin";
+    }
+
+    @GetMapping("/przystanekadmin")
+    public String przystaneka() {
+        return "admin/przystanekAdmin";
+    }
+
+    @GetMapping("/cennikadmin")
+    public String cennika() {
+        return "admin/cennikAdmin";
+    }
+
+    @GetMapping("/nagrodyadmin")
+    public String nagrodya() {
+        return "admin/nagrodaAdmin";
     }
 
 
@@ -68,6 +86,124 @@ public class AdminController {
         pojrep.save(pojazd);
         return "redirect:../../pojazdadmin";
     }
+// --------------------------------------
+
+    @GetMapping("/add/przystanek")
+public String addprzystanek(Model model) {
+    model.addAttribute("przystanek", new Przystanek());
+    return "admin/przystanek/addForm";
+}
+
+    @PostMapping("/add/przystanek")
+    public String addPrzyPost(@ModelAttribute Przystanek przy) {
+        this.przysrep.save(przy);
+        return "redirect:../przystanekadmin";
+    }
+
+
+    @GetMapping("/przystanekdel/{id}")
+    public String przystanekdel(@PathVariable long id) {
+        przysrep.delete(id);
+        return "redirect:../przystanekadmin";
+    }
+
+
+    @GetMapping("/przystanek/edit/{id}")
+    public String editprzys(Model model, @PathVariable long id) {
+
+        model.addAttribute("przystanek", this.przysrep.findOne(id));
+        return "admin/przystanek/addForm";
+    }
+
+    @PostMapping("/przystanek/edit/{id}")
+    public String editprzyspost(@ModelAttribute Przystanek przystanek) {
+        przysrep.save(przystanek);
+        return "redirect:../../przystanekadmin";
+    }
+
+    //---------------------------------------------------------------
+
+
+    @GetMapping("/add/cennik")
+    public String addcennik(Model model) {
+        model.addAttribute("cennik", new Cennik());
+        return "admin/cennik/addForm";
+    }
+
+    @PostMapping("/add/cennik")
+    public String addCennikPost(@ModelAttribute Cennik cen) {
+        this.cenrep.save(cen);
+        return "redirect:../cennikadmin";
+    }
+
+
+    @GetMapping("/cennikdel/{id}")
+    public String cennikdel(@PathVariable long id) {
+        cenrep.delete(id);
+        return "redirect:../cennikadmin";
+    }
+
+
+    @GetMapping("/cennik/edit/{id}")
+    public String editcennik(Model model, @PathVariable long id) {
+
+        model.addAttribute("cennik", this.cenrep.findOne(id));
+        return "admin/cennik/addForm";
+    }
+
+    @PostMapping("/cennik/edit/{id}")
+    public String editprzyspost(@ModelAttribute Cennik cen) {
+        cenrep.save(cen);
+        return "redirect:../../cennikadmin";
+    }
+
+    //--------------------------------------------------------------
+
+
+
+    @GetMapping("/add/nagrody")
+    public String addnagrody(Model model) {
+        model.addAttribute("nagrody", new Nagrody());
+        return "admin/nagrody/addForm";
+    }
+
+    @PostMapping("/add/nagrody")
+    public String addNagrPost(@ModelAttribute Nagrody nagr) {
+        this.nagrep.save(nagr);
+        return "redirect:../nagrodyadmin";
+    }
+
+
+    @GetMapping("/nagrodydel/{id}")
+    public String nagrodydel(@PathVariable long id) {
+        nagrep.delete(id);
+        return "redirect:../nagrodyadmin";
+    }
+
+
+    @GetMapping("/nagrody/edit/{id}")
+    public String editnagrody(Model model, @PathVariable long id) {
+
+        model.addAttribute("nagrody", this.nagrep.findOne(id));
+        return "admin/nagrody/addForm";
+    }
+
+    @PostMapping("/nagrody/edit/{id}")
+    public String editnagrodypost(@ModelAttribute Nagrody nagrody) {
+        nagrep.save(nagrody);
+        return "redirect:../../nagrodyadmin";
+    }
+
+    //--------------------------------------------------------------
+
+    @ModelAttribute("nagroda1")
+    public List<Nagrody> nagrody1(){return this.nagrep.findAll();}
+
+    @ModelAttribute("przystanek1")
+    public List<Przystanek> przystaneczki(){return this.przysrep.findAll();}
+
+    @ModelAttribute("cennik1")
+    public List<Cennik> cennik(){return this.cenrep.findAll();}
 
     @ModelAttribute("pojazd1")
     public List<Pojazd> pojazdy(){return this.pojrep.findAll();}

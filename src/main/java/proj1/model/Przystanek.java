@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class Przystanek {
 @Id
 @GeneratedValue
-private int id;
+private long id;
 private String miejscowosc;
 private String nazwaPrzystanku;
 private String trasa;
@@ -21,11 +21,11 @@ private String trasa;
         this.trasa = trasa;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
